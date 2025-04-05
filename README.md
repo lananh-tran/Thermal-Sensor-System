@@ -1,1 +1,1 @@
-# Thermal-Sensor-System
+# Thermal Sensor System
