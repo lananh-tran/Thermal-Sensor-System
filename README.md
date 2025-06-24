@@ -6,7 +6,15 @@ _Many thanks to Carter Trudeau and Kyle Chen for their help in this project._
 
 ## Introduction
 
-
+The purpose of this module is to take measurements of the surrounding ambient temperature and inner surface temperature of the rocket before and during flight for simulation purposes. The components used in this project can be viewed in the [Bill of Materials](Thermal Sensor System BOM 2025.xlsx):
+- [Adafruit MAX31865 PT100 RTD Temperature Sensor Amplifier](https://www.adafruit.com/product/3328)
+- [Adafruit MCP9808 I2C Temperature Sensor Breakout Board](https://www.adafruit.com/product/1782)
+- [MPU6050 Analog Gyro Sensors and Accelerometer Module](https://www.amazon.com/Gy-521-MPU-6050-MPU6050-Sensors-Accelerometer/dp/B008BOPN40?sr=8-2)
+- [HiLetgo Micro SD TF Card Adapter Reader Module](https://www.amazon.com/HiLetgo-Adater-Interface-Conversion-Arduino/dp/B07BJ2P6X6?sr=8-1)
+- [Battery Charger Module](https://www.amazon.com/dp/B098989NRZ?amp=&amp=)
+- [Samsung 35E 18650 3500mAh 8A - Button Top Battery](https://www.18650batterystore.com/products/samsung-35e-button-top)
+- [Arduino Nano Microcontroller](https://www.amazon.com/LAFVIN-Board-ATmega328P-Micro-Controller-Arduino/dp/B07G99NNXL?sr=8-1]
+- [Surface Mount RTD PT100 Temperature Sensor](https://evosensors.com/products/p3a-tape-rec-px-1-pfxx-40-stwl?variant=29631284299&country=US&currency=USD&gQT=1)
 
 ## Design Procedure
 
