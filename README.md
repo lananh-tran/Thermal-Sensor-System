@@ -29,15 +29,25 @@ I2C devices communicate through two lines - the clock (SCL) and the data line (S
 
 SPI devices require more connections, with a clock line (SCK or CLK), Master-In-Slave-Out (MISO or SDO), Master-Out-Slave-In (MOSI or SDI), and a Chip Select line (CS). Multiple SPI slaves can have their CLK, MISO, and MOSI lines connected to the corresponding lines of their master, but each slave has to be connected to a different CS pin on their master.
 
-In order to mitigate the potential wiring errors, we opt to design and fabricate a custom PCB of size 6 x 1.6 in, with a drill hole diameter of 0.1 in.
+In order to mitigate the potential wiring errors, we opt to design and fabricate a custom PCB of size 6 x 1.6 in, with a drill hole diameter of 0.1 in. The design is done in KiCad, which is a powerful and free PCB design software that is quite popular. KiCad also allows 3D modelling, which is quite convenient if you want to make sure the electrical design is compatible with the mechanical structure.
+
+![image]()
+![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%20Layout.jpeg)
+![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%203D%20Model.jpeg)
 
 ## Assembly Process
 
+The assembly process is quite straightforward. After soldering all the components onto the PCB, connect the RTD sensor to the MAX31865 breakout board as shown below, then connect the battery and charger module as demonstrated in the system schematic posted above.
 
+![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/8d93a0bf2f5ad6d971b894c0a99290d112e9a91c/MAX31865%203_wired.jpg)
+
+More details for the MAX31865 wiring can be viewed on [this site](https://learn.adafruit.com/adafruit-max31865-rtd-pt100-amplifier/rtd-wiring-config).
 
 ## Results
 
-
+Below is the final product before it was sent to IREC 2025 for competition:
+![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%20Fabricated.jpg)
+![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%20Soldered%20components.jpg)
 
 ## References
 
