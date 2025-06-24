@@ -41,7 +41,7 @@ The assembly process is quite straightforward. After soldering all the component
 
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/8d93a0bf2f5ad6d971b894c0a99290d112e9a91c/MAX31865%203_wired.jpg)
 
-More details for the MAX31865 wiring can be viewed on [this site](https://learn.adafruit.com/adafruit-max31865-rtd-pt100-amplifier/rtd-wiring-config).
+More details about the MAX31865 wiring can be viewed on [this site](https://learn.adafruit.com/adafruit-max31865-rtd-pt100-amplifier/rtd-wiring-config).
 
 ## Results
 
@@ -49,8 +49,196 @@ Below is the final product before it was sent to IREC 2025 for competition:
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%20Fabricated.jpg)
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%20Soldered%20components.jpg)
 
-## References
+## Code
 
+```
+#include <SPI.h>
+#include <Wire.h>
+#include <SD.h>
+#include <Adafruit_MPU6050.h>
+#include <Adafruit_Sensor.h>
+#include <Adafruit_MCP9808.h>
+#include <Adafruit_MAX31865.h>
 
+// --- CONFIGURATION ---
+int timeStamp = 1;
+#define SD_CS 4
+//SdFat SD;
+File dataLog;
 
-## Appendix
+float acceleration;
+Adafruit_MPU6050 mpu;
+
+float ambient;
+Adafruit_MCP9808 ambientTemp = Adafruit_MCP9808();
+
+#define RREF 430.0 // Rref resistor for PT100
+#define RNOMINAL 100.0 // Nominal resistance for PT100
+#define RTD_CS 10
+#define MOSI 11
+#define MISO 12
+#define CLK 13
+float surface;
+Adafruit_MAX31865 surfaceTemp = Adafruit_MAX31865(RTD_CS);
+
+void setup() {
+  // set serial monitor baud rate
+  Serial.begin(9600);
+  while(!Serial) {;}
+
+  // MCP9808 initialization
+  MCP_init();
+
+  // MPU6050 initialization
+  MPU_init();
+
+  // SD card initialization
+  SD_init();
+
+  // MAX31865 initialization
+  pinMode(RTD_CS, OUTPUT);
+  digitalWrite(RTD_CS, HIGH);
+  surfaceTemp.begin(MAX31865_3WIRE);
+  delay(1000);
+
+  // SPI communication setup
+  SPI.begin();
+
+  Serial.println("Begin testing:");
+}
+
+void loop() {
+  // --- MCP9808 Sampling ---
+  MCP_sample();
+
+  // testing
+  Serial.print("Ambient temp: "); 
+  Serial.print(ambient, 3);
+  Serial.println("*C");
+
+  // --- MAX31865 Sampling ---
+  MAX_sample();
+
+  // testing
+  Serial.print("Surface temp: "); 
+  Serial.print(surface, 3);
+  Serial.println("*C");
+
+  // --- MPU6050 Sampling ---
+  MPU_sample();
+
+  // testing
+  Serial.print("Acceleration: "); 
+  Serial.print(acceleration, 3);
+  Serial.println("m/s^2");
+
+  // --- SD card reader ---
+  SD_write();
+
+  delay(1000); // take readings every 1s
+}
+
+void MCP_init(void) {
+  //  A2 A1 A0 address
+  //  0  0  0   0x18  this is the default address
+  //  0  0  1   0x19
+  //  0  1  0   0x1A
+  //  0  1  1   0x1B
+  //  1  0  0   0x1C
+  //  1  0  1   0x1D
+  //  1  1  0   0x1E
+  //  1  1  1   0x1F
+  if(!ambientTemp.begin(0x18)) {
+	  Serial.println("Unable to connect to the MCP9808!");
+	  Serial.println("Check your connections and verify the address is correct.");
+	  while (1);
+  }
+
+  // Mode Resolution SampleTime
+  //  0    0.5°C       30 ms
+  //  1    0.25°C      65 ms
+  //  2    0.125°C     130 ms
+  //  3    0.0625°C    250 ms
+  ambientTemp.setResolution(3);
+  //Serial.println("MCP9808 initialized!");
+  delay(1000); // Give sensor time to stabilize
+}
+
+void MPU_init(void) {
+  if (!mpu.begin()) {
+    Serial.println("Failed to find MPU6050 chip");
+    while (1);
+  }
+
+  mpu.setAccelerometerRange(MPU6050_RANGE_16_G);
+  mpu.setGyroRange(MPU6050_RANGE_500_DEG);
+  mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
+
+  delay(1000); // Give sensor time to stabilize
+}
+
+void SD_init(void) {
+  pinMode(SD_CS, OUTPUT);
+  digitalWrite(SD_CS, HIGH);
+  //Serial.println("Initializing SD card...");
+  if(!SD.begin(SD_CS)) {
+    Serial.println("SD card initialization failed!");
+    //while(1) {;}
+  }
+  //Serial.println("Card initialized!");
+
+  dataLog = SD.open("DATALOG.csv", FILE_WRITE);
+  if(!dataLog) {
+    Serial.println("Failed to write!");
+    //while(1) {;}
+  }
+  dataLog.println("no.,ambientTemp(C),surfaceTemp(C),acceleration(m/s^2)");
+}
+
+void MCP_sample(void) {
+  ambientTemp.wake();
+  delay(200);
+  ambient = ambientTemp.readTempC();
+  ambientTemp.shutdown_wake(1);
+  delay(200);
+}
+
+void SD_write(void) {
+  digitalWrite(RTD_CS, HIGH);
+  digitalWrite(SD_CS, LOW);
+  
+  if(dataLog) {
+    dataLog.print(timeStamp);
+    dataLog.print(",");
+    dataLog.print(ambient, 3);
+    dataLog.print(",");
+    dataLog.print(surface, 3);
+    dataLog.print(",");
+    dataLog.println(acceleration, 3);
+    
+    dataLog.flush();
+    delay(200);
+  }
+
+  digitalWrite(SD_CS, HIGH);
+  timeStamp++;
+  Serial.println("Writing done");
+}
+
+void MAX_sample(void) {
+  digitalWrite(SD_CS, HIGH);
+  digitalWrite(RTD_CS, LOW);
+  surface = surfaceTemp.temperature(RNOMINAL, RREF);
+  delay(200);
+  digitalWrite(RTD_CS, HIGH);
+}
+
+void MPU_sample(void) {
+  // Get new sensor events with the readings
+  sensors_event_t a, g, temp;
+  mpu.getEvent(&a, &g, &temp);
+  acceleration = sqrt(a.acceleration.x * a.acceleration.x +
+                        a.acceleration.y * a.acceleration.y +
+                        a.acceleration.z * a.acceleration.z) - 9.81; // account for Earth stationary acceleration
+}
+```
