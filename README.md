@@ -41,7 +41,7 @@ The assembly process is quite straightforward. After soldering all the component
 
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/8d93a0bf2f5ad6d971b894c0a99290d112e9a91c/MAX31865%203_wired.jpg)
 
-More details about the MAX31865 wiring can be viewed on [this site](https://learn.adafruit.com/adafruit-max31865-rtd-pt100-amplifier/rtd-wiring-config).
+More details about the MAX31865 wiring can be viewed on [Adafruit's official guide](https://learn.adafruit.com/adafruit-max31865-rtd-pt100-amplifier/rtd-wiring-config).
 
 ## Results
 
