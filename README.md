@@ -64,6 +64,8 @@ After a close inspection of the SD module schematic, we suspect that the MISO mi
 We decided to follow a modification suggested on the Arduino Forum (source lost), as shown below.
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/631a0708d12d0355a09fba3c9a527eef10d72604/microSD%20card%20reader%20modification.png)
 
+Our modified SD module works properly when connected to the system along with the MAX31865 amplifier.
+
 ## Code
 
 ```
