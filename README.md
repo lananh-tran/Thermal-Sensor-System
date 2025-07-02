@@ -6,7 +6,7 @@ _Many thanks to Carter Trudeau and Kyle Chen for their help in this project._
 
 ## Introduction
 
-The purpose of this module is to take measurements of the surrounding ambient temperature and inner surface temperature of the rocket before and during flight for simulation purposes. The components used in this project can be viewed in the [Bill of Materials](https://github.com/lananh-tran/Thermal-Sensor-System/blob/1d724febd7ca4944d8594dc0ccbd3dcf55217213/Thermal%20Sensor%20System%20BOM%202025.xlsx) or shown below:
+The purpose of this module is to take measurements of the surrounding ambient temperature and inner surface temperature of our rocket - the Wildcat V - before and during flight for simulation purposes. The components used in this project can be viewed in the [Bill of Materials](https://github.com/lananh-tran/Thermal-Sensor-System/blob/1d724febd7ca4944d8594dc0ccbd3dcf55217213/Thermal%20Sensor%20System%20BOM%202025.xlsx) or shown below:
 
 - [Adafruit MAX31865 PT100 RTD Temperature Sensor Amplifier](https://www.adafruit.com/product/3328)
 - [Adafruit MCP9808 I2C Temperature Sensor Breakout Board](https://www.adafruit.com/product/1782)
