@@ -50,8 +50,19 @@ Below is the final product before it was sent to IREC 2025 for competition:
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%20Fabricated.jpg)
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%20Soldered%20components.jpg)
 
-A critical issue we have with this module is the design of the microSD Adapter Module that leads to the SPI bus doesn'. Du
-In the schematic of the microSD module below, we observed tha
+A critical issue we have with this module is the design of the microSD Adapter Module, which leads to the SPI bus not getting off the SPI bus. We utilized the logic analyzer function of the ADALM2000 module to observe the behavior of the system.
+
+Results when the SD module is connected:
+![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/631a0708d12d0355a09fba3c9a527eef10d72604/SD%20reader%20connected.png)
+
+When the SD module isn't connected:
+![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/631a0708d12d0355a09fba3c9a527eef10d72604/SD%20reader%20not%20connected.png)
+
+After a close inspection of the SD module schematic, we suspect that the MISO might be pulled to GND by default by the buffer, leading to the issue with the SPI bus.
+![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/631a0708d12d0355a09fba3c9a527eef10d72604/SD%20reader%20schematic.png]
+
+We decided to follow a modification suggested on the Arduino Forum (source lost), as shown below.
+![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/631a0708d12d0355a09fba3c9a527eef10d72604/microSD%20card%20reader%20modification.png)
 
 ## Code
 
