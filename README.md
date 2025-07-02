@@ -59,7 +59,7 @@ When the SD module isn't connected:
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/631a0708d12d0355a09fba3c9a527eef10d72604/SD%20reader%20not%20connected.png)
 
 After a close inspection of the SD module schematic, we suspect that the MISO might be pulled to GND by default by the buffer, leading to the issue with the SPI bus.
-![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/631a0708d12d0355a09fba3c9a527eef10d72604/SD%20reader%20schematic.png]
+![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/631a0708d12d0355a09fba3c9a527eef10d72604/SD%20reader%20schematic.png)
 
 We decided to follow a modification suggested on the Arduino Forum (source lost), as shown below.
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/631a0708d12d0355a09fba3c9a527eef10d72604/microSD%20card%20reader%20modification.png)
