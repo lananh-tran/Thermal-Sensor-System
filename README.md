@@ -31,7 +31,7 @@ I2C devices communicate through two lines - the clock (SCL) and the data line (S
 
 SPI devices require more connections, with a clock line (SCK or CLK), Master-In-Slave-Out (MISO or SDO), Master-Out-Slave-In (MOSI or SDI), and a Chip Select line (CS). Multiple SPI slaves can have their CLK, MISO, and MOSI lines connected to the corresponding lines of their master, but each slave has to be connected to a different CS pin on their master.
 
-In order to mitigate the potential wiring errors, we opt to design and fabricate a custom PCB of size 6 x 1.6 in, with a drill hole diameter of 0.1 in. The design is done in KiCad, which is a powerful and free PCB design software that is quite popular. KiCad also allows 3D modelling, which is quite convenient if you want to make sure the electrical design is compatible with the mechanical structure.
+In order to mitigate the potential wiring errors, we opt to design and fabricate a custom PCB of size 6 x 1.6 in, with a drill hole diameter of 0.1 in. The design is done in KiCad, which is a powerful and free PCB design software. KiCad also allows 3D modelling, which is quite convenient if you want to make sure the electrical design is compatible with the mechanical structure.
 
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%203D%20Model.jpeg)
 
