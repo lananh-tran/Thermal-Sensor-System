@@ -33,7 +33,7 @@ SPI devices require more connections, with a clock line (SCK or CLK), Master-In-
 
 In order to mitigate the potential wiring errors, we opt to design and fabricate a custom PCB of size 6 x 1.6 in, with a drill hole diameter of 0.1 in. The design is done in KiCad, which is a powerful and free PCB design software that is quite popular. KiCad also allows 3D modelling, which is quite convenient if you want to make sure the electrical design is compatible with the mechanical structure.
 
-![image]()
+![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/d5d5c029189880a7a1d2327ea8d907fa255f67fc/KiCad%20Schematic)
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%20Layout.jpeg)
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%203D%20Model.jpeg)
 
