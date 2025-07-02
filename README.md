@@ -17,7 +17,7 @@ The purpose of this module is to take measurements of the surrounding ambient te
 - [Arduino Nano Microcontroller](https://www.amazon.com/LAFVIN-Board-ATmega328P-Micro-Controller-Arduino/dp/B07G99NNXL?sr=8-1)
 - [Surface Mount RTD PT100 Temperature Sensor](https://evosensors.com/products/p3a-tape-rec-px-1-pfxx-40-stwl?variant=29631284299&country=US&currency=USD&gQT=1)
 
-Link to the KiCad [schematic](https://github.com/lananh-tran/Thermal-Sensor-System/blob/4369b679e1e1e8256428873dc583f430bf157983/Thermal-System.kicad_sch) and [PCB layout](https://github.com/lananh-tran/Thermal-Sensor-System/blob/4369b679e1e1e8256428873dc583f430bf157983/Thermal-System.kicad_pcb).
+Link to the KiCad [schematic](https://github.com/lananh-tran/Thermal-Sensor-System/blob/4369b679e1e1e8256428873dc583f430bf157983/Thermal-System.kicad_sch) and [PCB layout](https://github.com/lananh-tran/Thermal-Sensor-System/blob/4369b679e1e1e8256428873dc583f430bf157983/Thermal-System.kicad_pcb) files.
 
 ## Design Procedure
 
