@@ -19,7 +19,7 @@ The purpose of this module is to take measurements of the surrounding ambient te
 
 ## Design Procedure
 
-Below is the schematic for the sensor system:
+Below is the rough design for the sensor system. See [design schematic](https://github.com/lananh-tran/Thermal-Sensor-System/blob/db7faa17b55e4ecaf4507a09ca1c67294a6be1d8/Thermal%20System%20Schematic.pdf) and [PCB layout](https://github.com/lananh-tran/Thermal-Sensor-System/blob/db7faa17b55e4ecaf4507a09ca1c67294a6be1d8/Thermal%20System%20PCB.pdf) for more details.
 
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/3b80351effe68cb9232d9420fbba5fe1baf3be82/Design%20schematic.PNG)
 
