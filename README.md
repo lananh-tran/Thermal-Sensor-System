@@ -47,6 +47,8 @@ More details about the MAX31865 wiring can be viewed on [Adafruit's official gui
 
 ## Results
 
+We chose [OSH Park](https://oshpark.com/) to fabricate our PCB as they are a US-based company, thereby having a lower shipping cost.
+
 Below is the final product before it was sent to IREC 2025 for competition:
 
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%20Fabricated.jpg)
