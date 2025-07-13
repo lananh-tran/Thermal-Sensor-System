@@ -52,7 +52,7 @@ Below is the final product before it was sent to IREC 2025 for competition:
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%20Fabricated.jpg)
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/2986bce716af941466dec6310956a8af12dea283/PCB%20Soldered%20components.jpg)
 
-A critical issue we have with this module is the design of the microSD Adapter Module, which leads to the SPI bus not getting off the SPI bus. We utilized the logic analyzer function of the ADALM2000 module to observe the behavior of the system.
+A critical issue we have with this module is the design of the microSD Adapter Module, which leads to the SPI bus not getting off the SPI bus. As a result, we initially couldn't implement multiple SPI devices using a single Arduino. To debug, we opted to utilize the logic analyzer function of the ADALM2000 module to observe the behavior of the system.
 
 Results when the SD module is connected:
 ![image](https://github.com/lananh-tran/Thermal-Sensor-System/blob/631a0708d12d0355a09fba3c9a527eef10d72604/SD%20reader%20connected.png)
